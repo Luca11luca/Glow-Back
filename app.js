@@ -12,7 +12,9 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("uploads"));
-app.use(cors());
+app.use(cors({
+  origin: ["https://splendid-marzipan-e920bc.netlify.app", "http://localhost:5173"]
+}));
  
 app.use("/api", authRouter);
 app.use("/api", cartRouter);
